@@ -40,7 +40,7 @@ jobs:
           # relative path to the place where source code with Dockerfile is located
           context: ./simple-api
           # Note: tags has to be all lower-case
-          tags: ${{ SECRETS.DOCKERHUB_USERNAME}}/tp-devops-simple-api:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME}}devops-livecoding/tp-devops-simple-api:latest
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
 
@@ -51,7 +51,7 @@ jobs:
           # relative path to the place where source code with Dockerfile is located
           context: ./database
           # Note: tags has to be all lower-case
-          tags: ${{ SECRETS.DOCKERHUB_USERNAME}}/tp-devops-simple-api:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME}}devops-livecoding/tp-devops-simple-api:latest
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
 
@@ -62,9 +62,9 @@ jobs:
           # relative path to the place where source code with Dockerfile is located
           context: ./http-server
           # Note: tags has to be all lower-case
-          tags: ${{ SECRETS.DOCKERHUB_USERNAME}}/tp-devops-simple-api:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME}}devops-livecoding/tp-devops-simple-api:latest
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Login to DockerHub
-        run: docker login -u ${{ SECRETS.DOCKERHUB_USERNAME }} -p ${{ SECRETS.DOCKERHUB_TOKEN }}
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
